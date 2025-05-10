@@ -1,5 +1,6 @@
 import string
 import connection as conn
+import nltk
 from nltk.corpus import stopwords
 
 try:

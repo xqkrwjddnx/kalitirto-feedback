@@ -1,6 +1,5 @@
 import streamlit as st
 import joblib
-from nltk.corpus import stopwords
 from supabase import create_client
 
 @st.cache_resource 

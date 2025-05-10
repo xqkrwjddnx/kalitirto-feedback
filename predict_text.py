@@ -2,6 +2,11 @@ import string
 import connection as conn
 from nltk.corpus import stopwords
 
+try:
+    _ = nltk.corpus.stopwords.words('indonesian')
+except LookupError:
+    nltk.download('stopwords')
+
 model = conn.load_model()
 vectorizer = conn.load_vectorizer()
 stop_words = stopwords.words('indonesian')

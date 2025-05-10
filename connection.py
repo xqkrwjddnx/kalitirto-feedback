@@ -18,7 +18,3 @@ def load_model():
 @st.cache_resource 
 def load_vectorizer():
     return joblib.load('vectorizer.pkl')
-
-@st.cache_resource
-def load_stopwords():
-    return set(stopwords.words('indonesian'))

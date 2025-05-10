@@ -1,9 +1,10 @@
 import string
 import connection as conn
+from nltk.corpus import stopwords
 
 model = conn.load_model()
 vectorizer = conn.load_vectorizer()
-stop_words = conn.load_stopwords
+stop_words = stopwords.words('indonesian')
 
 def preprocess_text(text):
     """Fungsi untuk preprocessing teks: lowercase, hapus tanda baca, hapus stopwords"""

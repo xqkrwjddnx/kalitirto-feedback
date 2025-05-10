@@ -1,0 +1,7 @@
+streamlit
+joblib
+nltk
+scikit-learn
+supabase
+pandas
+pytz

@@ -4,7 +4,6 @@ import repository as repo
 import utils as utils
 import predict_text as predict
 
-st.set_page_config(page_title="Form Kritik dan Saran Kelurahan Kalitirto")
 markdown = utils.set_markdown()
 
 st.title("Form Kritik dan Saran")

@@ -1,10 +1,14 @@
 import connection as conn
+import streamlit as st
 
 db = conn.load_database()
 
 def insert_data(data):
     db.insert(data).execute()
+    get_count_by_prediction.clear()
+    get_feedback_history.clear()
 
+@st.cache_data
 def get_count_by_prediction(prediction, start_date, end_date):
     data = db.select("*", count="exact") \
         .eq("prediction", prediction) \
@@ -14,6 +18,7 @@ def get_count_by_prediction(prediction, start_date, end_date):
         .execute()
     return data.count
 
+@st.cache_data
 def get_feedback_history(start_date, end_date):
     data = db.select("feedback, prediction, created_at") \
         .gte("created_at", start_date) \

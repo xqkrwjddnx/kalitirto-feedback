@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import pytz
+import plotly.express as px
 
 def process_feedback_history(data):
     df = pd.DataFrame(data)
@@ -45,3 +46,25 @@ def set_markdown():
         }
     </style>
     """, unsafe_allow_html=True)
+
+def create_chart(positive, neutral, negative):
+    labels = ['Positif', 'Netral', 'Negatif']
+    values = [positive, neutral, negative]
+
+    fig = px.pie(
+        names=labels,
+        values=values,
+        color=['Positif', 'Netral', 'Negatif'],
+        color_discrete_map={
+            'Positif': 'green',
+            'Netral': 'yellow',
+            'Negatif': 'red'
+        }
+    )
+
+    fig.update_traces(
+        textinfo='label+percent',
+        insidetextorientation='auto',
+        hoverinfo='skip', hovertemplate=None
+    )
+    st.plotly_chart(fig, use_container_width=True)
